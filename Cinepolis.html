@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinépolis - Proyecto Escolar Básico</title>
+    
+    <!-- css basico -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif; /* tipografía */
+        }
+
+        /* color de fondode la página */
+        body {
+            background-color: #202E55;
+            color: #333333;
+        }
+
+        /* barra de navegacion */
+        header {
+            background-color: #0b2341; /* azul Cinépolis */
+            padding: 15px 30px;
+            display: flex;             /* alinea el logo y el menú horizontalmente */
+            justify-content: space-between; /* espacio entre el logo y el menú */
+            align-items: center;
+        }
+
+        /* Logo en texto */
+        .logo {
+            color: #FFFFFF;            
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* lista de navegación */
+        nav ul {
+            list-style: none;          /* quita los puntos negros de la lista */
+            display: flex;             /* pone los enlaces uno al lado del otro */
+            gap: 20px;                 /* separa los enlaces entre sí */
+        }
+
+        /* enlaces del menú */
+        nav a {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* mensaje de bienvenida */
+        .banner {
+            background-color: #061528; /* azul aún más oscuro */
+            color: #ffffff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .banner h1 {
+            font-size: 32px;
+            color: #FFFFFF;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            font-size: 18px;
+        }
+
+        /* contenido principal */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;            /* centra todo */
+            padding: 30px 20px;
+        }
+
+        /* títulos de cada sección */
+        .titulo-seccion {
+            color: #FFFFFF;
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #FFFFFF; /* línea*/
+            padding-bottom: 5px;
+        }
+
+        .seccion {
+            margin-bottom: 40px;
+        }
+
+        /* estilos de tarjetas de peliculas */
+        .contenedor-peliculas {
+            display: flex;
+            flex-wrap: wrap;           /* Si no caben en una fila, bajan a la siguiente */
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Estilo de la tarjeta individual */
+        .tarjeta-pelicula {
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 8px;        /* Bordes redondeados */
+            width: 210px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Imagen de la tarjeta */
+        .tarjeta-pelicula img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .tarjeta-pelicula h3 {
+            font-size: 16px;
+            color: #0b2341;
+            margin-bottom: 8px;
+        }
+
+        .horarios {
+            font-size: 13px;
+            color: #666666;
+            margin-bottom: 12px;
+        }
+
+        /* Botón de Comprar */
+        .boton-comprar {
+            background-color: #0b2341;
+            color: #FFFFFF;
+            border: none;
+            padding: 8px 12px;
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+
+        /* estilos de formulario */
+        .contenedor-login {
+            background-color: #ffffff;
+            border: 2px solid #0b2341;
+            border-radius: 10px;
+            max-width: 700px;
+            margin: 0 auto;            /* centra el formulario */
+            padding: 25px;
+        }
+
+        .campo-formulario {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .campo-formulario label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #0b2341;
+            font-size: 14px;
+        }
+
+        .campo-formulario input,
+        .campo-formulario select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .boton-login {
+            background-color: #0b2341;
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+        /* estilos de pie de pagina */
+        footer {
+            background-color: #0b2341;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        footer span {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- barra de navegacion -->
+    <!-- Usa las etiquetas de estructura <header> y <nav> -->
+    <header>
+        <div class="logo">Cinépolis</div>
+        <nav>
+            <ul>
+                <li><a href="#cartelera">Cartelera</a></li>
+                <li><a href="#estrenos">Estrenos</a></li>
+                <li><a href="#login">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- encabezado -->
+    <section class="banner">
+        <h1>Bienvenido a Cinépolis</h1>
+        <p>Disfruta de las mejores películas y las mejores palomitas.</p>
+    </section>
+
+    <!-- contenido principal (<main>) -->
+    <main>
+
+        <!-- peliculas de la cartelera -->
+        <!-- Usamos <section> para dividir y <article> -->
+        <!-- para cada tarjeta de película -->
+        <section id="cartelera" class="seccion">
+            <h2 class="titulo-seccion">Películas en Cartelera</h2>
+            
+            <div class="contenedor-peliculas">
+                
+                <!-- Película 1 -->
+                <article class="tarjeta-pelicula">
+                    <img src="img1.jpg" alt="Digger"> 
+                    <h3>Digger</h3>
+                    <p class="horarios">Horarios: 4:00 PM | 7:00 PM</p>
+                    <button class="boton-comprar">Comprar Boleto</button>
+                </article>
+
+                <!-- Película 2 -->
+                <article class="tarjeta-pelicula">
+                    <img src="img2.jpg" alt="your name">
+                    <h3>Your name</h3>
+                    <p class="horarios">Horarios: 3:30 PM | 5:45 PM</p>
+                    <button class="boton-comprar">Comprar Boleto</button>
+                </article>
+
+                <!-- Película 3 -->
+                <article class="tarjeta-pelicula">
+                    <img src="img3.jpg" alt="clayface">
+                    <h3>Clayface</h3>
+                    <p class="horarios">Horarios: 6:00 PM | 9:15 PM</p>
+                    <button class="boton-comprar">Comprar Boleto</button>
+                </article>
+
+                <!-- Película 4 -->
+                <article class="tarjeta-pelicula">
+                    <img src="img4.jpg" alt="Resident Evil: Noche Cero"> 
+                    <h3>Resident Evil: Noche Cero</h3>
+                    <p class="horarios">Horarios: 8:00 PM | 10:30 PM</p>
+                    <button class="boton-comprar">Comprar Boleto</button>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- proximos estrenos -->
+        <section id="estrenos" class="seccion">
+            <h2 class="titulo-seccion">Próximos Estrenos</h2>
+
+            <div class="contenedor-peliculas">
+                
+                <!-- Estreno 1 -->
+                <article class="tarjeta-pelicula">
+                    <img src="img5.jpg" alt="Avengers doomsday">
+                    <h3>Avengers Doomsday</h3>
+                    <p class="horarios">Estreno: 17 de Diciembre</p>
+                    <button class="boton-comprar" style="background-color: #cccccc; cursor: not-allowed;">Próximamente</button>
+                </article>
+
+                <!-- Estreno 2 -->
+                <article class="tarjeta-pelicula">
+                    <img src="img6.jpg" alt="Dune: Part Three"> 
+                    <h3>Dune: Part Three</h3>
+                    <p class="horarios">Estreno: 18 de Diciembre</p>
+                    <button class="boton-comprar" style="background-color: #cccccc; cursor: not-allowed;">Próximamente</button>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- inicio de sesion -->
+        <!-- Uso de formularios (<form>, <label>, <input>)   -->
+        <section id="login" class="seccion">
+            <h2 class="titulo-seccion">Acceso a Club Cinépolis</h2>
+            
+            <div class="contenedor-login">
+                <form action="#" method="post">
+                    
+                    <!-- Selección de método de ingreso -->
+                    <div class="campo-formulario">
+                        <label for="metodo">Ingresar mediante:</label>
+                        <select id="metodo">
+                            <option value="correo">Correo Electrónico</option>
+                            <option value="tarjeta">Número de Tarjeta Club Cinépolis</option>
+                        </select>
+                    </div>
+
+                    <!-- Input para Correo o Número de Tarjeta -->
+                    <div class="campo-formulario">
+                        <label for="usuario">Correo o N° de Tarjeta:</label>
+                        <input type="text" id="usuario" placeholder="Ej. usuario@correo.com o 12345678" required>
+                    </div>
+
+                    <!-- Input para Contraseña o PIN -->
+                    <div class="campo-formulario">
+                        <label for="password">Contraseña / PIN:</label>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+
+                    <!-- Botón de enviar -->
+                    <button type="submit" class="boton-login">Ingresar</button>
+
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- pie de pagina -->
+    <footer>
+        <p>Duarte Granados Said 5-J 0833</p>
+    </footer>
+
+</body>
+</html>
